@@ -483,14 +483,8 @@
       </h1>
       <p class="hero-sub">Things I actually bought, actually use, and actually love. Quality and durability — without spending like you have something to prove.</p>
 
-      <!-- Find Nav Ribbon -->
-      <div class="find-nav">
-        <span class="active">Latest</span>
-        <span class="find-link">Cooling Blanket</span>
-        <span class="find-link">Stanley Thermos</span>
-        <span class="find-link">Candle Lighter</span>
-        <span class="find-link">Shaving Kit</span>
-      </div>
+      <!-- Find Nav Ribbon — built automatically from products.js -->
+      <div class="find-nav" id="find-nav"></div>
 
       <!-- Values Bar -->
       <div class="values-bar">
@@ -501,80 +495,8 @@
     </div>
   </section>
 
-  <!-- ===== FEED ===== -->
-  <main id="finds" class="site-width feed">
-
-    <!-- CARD: Cooling Blanket -->
-    <article class="card">
-      <div class="card-image" style="background:linear-gradient(180deg,rgba(40,75,55,0.9),rgba(27,58,45,0.95));">
-        <span class="placeholder">Product photo</span>
-        <div class="card-badge">Rick's pick</div>
-      </div>
-      <div class="card-body">
-        <div class="card-category">Home · Sleep</div>
-        <h2 class="card-headline">The Cooling Blanket That Actually Works</h2>
-        <p class="card-text">I bought this after two summers of sweating through what felt like sleeping inside a heated sock. A friend mentioned it, I ignored it for six months, and then ordered it at 1am on a Tuesday in July. That was a year ago. I've washed it probably forty times and it still does the thing — pull heat away from your body without feeling like you're sleeping under a grocery bag. The bamboo weave is legitimately soft. It doesn't feel medical. It just feels like a blanket that's good at its job.</p>
-        <button class="card-expand" onclick="toggleCard(this)">Read more ↓</button>
-      </div>
-      <div class="card-footer">
-        <span class="card-price"><span class="price">~$45</span> <span class="source">— Amazon</span></span>
-        <a href="#" class="card-cta">See it →</a>
-      </div>
-    </article>
-
-    <!-- CARD: Stanley Thermos -->
-    <article class="card">
-      <div class="card-image" style="background:linear-gradient(180deg,rgba(50,40,30,0.9),rgba(35,28,22,0.95));">
-        <span class="placeholder">Product photo</span>
-      </div>
-      <div class="card-body">
-        <div class="card-category">Kitchen · Coffee</div>
-        <h2 class="card-headline">The Stanley Thermos Your Grandpa Was Right About</h2>
-        <p class="card-text">Not the TikTok one. The classic. Vacuum-insulated, built like a tank, keeps coffee hot for 24 hours. I've dropped mine on concrete twice and it has a dent and a story. Still works perfectly. Stanley has been making this since 1913 and somehow the original design is still the best one. That should tell you something about what happens when a company gets it right the first time.</p>
-        <button class="card-expand" onclick="toggleCard(this)">Read more ↓</button>
-      </div>
-      <div class="card-footer">
-        <span class="card-price"><span class="price">~$35</span> <span class="source">— Amazon</span></span>
-        <a href="#" class="card-cta">See it →</a>
-      </div>
-    </article>
-
-    <!-- CARD: Candle Lighter -->
-    <article class="card">
-      <div class="card-image" style="background:linear-gradient(180deg,rgba(45,35,28,0.9),rgba(32,25,20,0.95));">
-        <span class="placeholder">Product photo</span>
-        <div class="card-badge">Rick's pick</div>
-      </div>
-      <div class="card-body">
-        <div class="card-category">Home · Everyday</div>
-        <h2 class="card-headline">The USB Candle Lighter That Replaced Every Match</h2>
-        <p class="card-text">Electric arc, rechargeable, reaches into deep candle jars. No fluid, no refills, no burning your thumb. I bought one as a gag gift and then bought three more for myself. Under fifteen bucks. It charges with USB-C, which means one less proprietary cable in your life. The button has a safety lock that actually makes sense. This is the kind of thing where you use it once and immediately think of five people who need one.</p>
-        <button class="card-expand" onclick="toggleCard(this)">Read more ↓</button>
-      </div>
-      <div class="card-footer">
-        <span class="card-price"><span class="price">~$13</span> <span class="source">— Amazon</span></span>
-        <a href="#" class="card-cta">See it →</a>
-      </div>
-    </article>
-
-    <!-- CARD: Shaving Kit -->
-    <article class="card">
-      <div class="card-image" style="background:linear-gradient(180deg,rgba(30,42,50,0.9),rgba(22,32,40,0.95));">
-        <span class="placeholder">Product photo</span>
-      </div>
-      <div class="card-body">
-        <div class="card-category">Grooming · Self Care</div>
-        <h2 class="card-headline">A Safety Razor Kit That Pays for Itself in Months</h2>
-        <p class="card-text">Blades cost pennies. The shave is closer. The handle is solid metal and will outlast you. I did the math — I've saved over $200 in two years versus cartridge refills. And the ritual is genuinely better. There's something about a single blade and a good lather that makes you slow down for three minutes. No five-blade marketing nonsense. Just a clean shave and a little bit of quiet.</p>
-        <button class="card-expand" onclick="toggleCard(this)">Read more ↓</button>
-      </div>
-      <div class="card-footer">
-        <span class="card-price"><span class="price">~$40</span> <span class="source">— Various</span></span>
-        <a href="#" class="card-cta">See it →</a>
-      </div>
-    </article>
-
-  </main>
+  <!-- ===== FEED — cards built automatically from products.js ===== -->
+  <main id="finds" class="site-width feed"></main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-width site-footer">
@@ -582,8 +504,75 @@
     <p class="footer-copy">© 2026 CoolFind.co</p>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
+  <!-- ===== LOAD PRODUCTS ===== -->
+  <script src="products.js"></script>
+
+  <!-- ===== BUILD THE PAGE ===== -->
   <script>
+    // Background colors for card image placeholders
+    var cardColors = [
+      'linear-gradient(180deg,rgba(45,35,28,0.9),rgba(32,25,20,0.95))',
+      'linear-gradient(180deg,rgba(40,75,55,0.9),rgba(27,58,45,0.95))',
+      'linear-gradient(180deg,rgba(50,40,30,0.9),rgba(35,28,22,0.95))',
+      'linear-gradient(180deg,rgba(30,42,50,0.9),rgba(22,32,40,0.95))',
+      'linear-gradient(180deg,rgba(35,50,35,0.9),rgba(25,38,25,0.95))',
+      'linear-gradient(180deg,rgba(42,32,42,0.9),rgba(30,22,30,0.95))'
+    ];
+
+    // Build find nav ribbon from first 5 products
+    var navEl = document.getElementById('find-nav');
+    var navHTML = '<span class="active">Latest</span>';
+    var maxNav = Math.min(products.length, 5);
+    for (var i = 0; i < maxNav; i++) {
+      navHTML += '<span class="find-link">' + products[i].name + '</span>';
+    }
+    navEl.innerHTML = navHTML;
+
+    // Build product cards
+    var feed = document.getElementById('finds');
+    var feedHTML = '';
+
+    for (var i = 0; i < products.length; i++) {
+      var p = products[i];
+      var bg = cardColors[i % cardColors.length];
+
+      var imageContent;
+      if (p.image) {
+        imageContent = '<img src="' + p.image + '" alt="' + p.name + '">';
+      } else {
+        imageContent = '<span class="placeholder">Product photo</span>';
+      }
+
+      var badgeHTML = '';
+      if (p.badge) {
+        badgeHTML = '<div class="card-badge">' + p.badge + '</div>';
+      }
+
+      var linkTarget = p.link && p.link !== '#'
+        ? ' href="' + p.link + '" target="_blank" rel="nofollow noopener"'
+        : ' href="#"';
+
+      feedHTML += ''
+        + '<article class="card">'
+        +   '<div class="card-image" style="background:' + bg + ';">'
+        +     imageContent
+        +     badgeHTML
+        +   '</div>'
+        +   '<div class="card-body">'
+        +     '<div class="card-category">' + p.category + '</div>'
+        +     '<h2 class="card-headline">' + p.headline + '</h2>'
+        +     '<p class="card-text">' + p.preview + ' ' + p.expanded + '</p>'
+        +     '<button class="card-expand" onclick="toggleCard(this)">Read more ↓</button>'
+        +   '</div>'
+        +   '<div class="card-footer">'
+        +     '<span class="card-price"><span class="price">' + p.price + '</span> <span class="source">— ' + p.source + '</span></span>'
+        +     '<a' + linkTarget + ' class="card-cta">See it →</a>'
+        +   '</div>'
+        + '</article>';
+    }
+
+    feed.innerHTML = feedHTML;
+
     // Expand / Collapse card text
     function toggleCard(btn) {
       var text = btn.previousElementSibling;
@@ -612,9 +601,10 @@
     }
 
     window.addEventListener('scroll', revealCards);
-    window.addEventListener('load', revealCards);
+    revealCards();
   </script>
 
 </body>
 </html>
+
 
