@@ -3,11 +3,618 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoolFind.co – Rick Outlander</title>
+  <title>CoolFind.co — Real finds. Worth every penny.</title>
+  <meta name="description" content="Curated by Rick Outlander. Things I actually bought, actually use, and actually love. Quality and durability — without spending like you have something to prove.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --bg-primary: #1B3A2D;
+      --bg-secondary: #152e22;
+      --accent: #E8732A;
+      --text-primary: #F5F0E8;
+      --text-muted: rgba(245, 240, 232, 0.6);
+      --text-faint: rgba(245, 240, 232, 0.35);
+      --border-subtle: rgba(255, 255, 255, 0.07);
+      --accent-tint: rgba(232, 115, 42, 0.12);
+      --accent-border: rgba(232, 115, 42, 0.2);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Jost', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ===== LAYOUT ===== */
+    .site-width {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    /* ===== NAV ===== */
+    .nav {
+      padding: 1.25rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-logo .logo-cool { color: var(--text-primary); }
+    .nav-logo .logo-find { color: var(--accent); }
+    .nav-logo .logo-co { color: var(--text-primary); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 11px;
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: rgba(245, 240, 232, 0.7);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+      transition: color 0.3s ease;
+    }
+
+    .nav-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(232, 115, 42, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: rgba(245, 240, 232, 0.6);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 3.5rem 2.5rem 0;
+      overflow: hidden;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    .hero-headline .accent-line {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      font-weight: 300;
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* ===== FIND NAV RIBBON ===== */
+    .find-nav {
+      border-top: 1px solid var(--border-subtle);
+      padding: 14px 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      row-gap: 10px;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .find-nav .active {
+      color: var(--accent);
+      padding-right: 1.25rem;
+    }
+
+    .find-nav .find-link {
+      border-left: 1px solid rgba(245, 240, 232, 0.15);
+      padding: 0 1.25rem;
+      color: rgba(245, 240, 232, 0.5);
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .find-nav .find-link:hover {
+      color: var(--text-primary);
+    }
+
+    /* ===== VALUES BAR ===== */
+    .values-bar {
+      border-top: 1px solid var(--border-subtle);
+      padding: 14px 0;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      font-weight: 500;
+    }
+
+    .values-bar .value {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .values-bar .dash {
+      width: 16px;
+      height: 2px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    /* ===== FEED ===== */
+    .feed {
+      padding-top: 2.5rem;
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: var(--accent-border);
+    }
+
+    .card-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-image .placeholder {
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.2);
+      font-weight: 300;
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--accent);
+      color: var(--bg-primary);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 3px;
+    }
+
+    .card-body {
+      padding: 1.5rem 1.5rem 1.25rem;
+    }
+
+    .card-category {
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .card-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      font-style: italic;
+      margin-bottom: 14px;
+      line-height: 1.2;
+      color: var(--text-primary);
+    }
+
+    .card-text {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      font-weight: 300;
+      letter-spacing: 0.2px;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-text.expanded {
+      display: block;
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+
+    .card-expand {
+      display: inline-block;
+      border: 1px solid rgba(245, 240, 232, 0.15);
+      border-radius: 4px;
+      padding: 8px 18px;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.5);
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 12px;
+      background: none;
+      font-family: 'Jost', sans-serif;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card-expand:hover {
+      color: rgba(245, 240, 232, 0.8);
+      border-color: rgba(245, 240, 232, 0.3);
+    }
+
+    .card-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 14px 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-price {
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    .card-price .price {
+      color: var(--accent);
+    }
+
+    .card-price .source {
+      color: var(--text-faint);
+    }
+
+    .card-cta {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      padding: 8px 20px;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Jost', sans-serif;
+      background: none;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .card-cta:hover {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      padding: 2.5rem 0 3rem;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 1rem;
+    }
+
+    .footer-disclosure {
+      font-size: 13px;
+      color: var(--text-faint);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(245, 240, 232, 0.2);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .card {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .card.visible {
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-right {
+        gap: 0;
+      }
+
+      .hero {
+        padding: 2.5rem 1.25rem 0;
+      }
+
+      .hero-headline {
+        font-size: clamp(36px, 10vw, 52px);
+      }
+
+      .find-nav {
+        row-gap: 8px;
+      }
+
+      .find-nav .find-link {
+        padding: 0 1rem;
+      }
+
+      .values-bar {
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+
+      .card-body {
+        padding: 1.25rem 1.25rem 1rem;
+      }
+
+      .card-footer {
+        padding: 12px 1.25rem;
+      }
+
+      .card-headline {
+        font-size: 23px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>CoolFind.co</h1>
-  <p>Coming soon. Real finds. Built to last. Worth every penny.</p>
-  <p>— Rick Outlander</p>
+
+  <!-- ===== NAV ===== -->
+  <header class="site-width">
+    <nav class="nav">
+      <a href="/" class="nav-logo">
+        <span class="logo-cool">Cool</span><span class="logo-find">Find</span><span class="logo-co">.co</span>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#finds">Finds</a>
+          <a href="#categories">Categories</a>
+          <a href="#about">About Rick</a>
+        </div>
+        <div class="nav-avatar">RO</div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="site-width">
+    <div class="hero">
+      <div class="hero-eyebrow">Rick Outlander — Curator</div>
+      <h1 class="hero-headline">
+        Real finds.<br>
+        <span class="accent-line">Worth every penny.</span>
+      </h1>
+      <p class="hero-sub">Things I actually bought, actually use, and actually love. Quality and durability — without spending like you have something to prove.</p>
+
+      <!-- Find Nav Ribbon -->
+      <div class="find-nav">
+        <span class="active">Latest</span>
+        <span class="find-link">Cooling Blanket</span>
+        <span class="find-link">Stanley Thermos</span>
+        <span class="find-link">Candle Lighter</span>
+        <span class="find-link">Shaving Kit</span>
+      </div>
+
+      <!-- Values Bar -->
+      <div class="values-bar">
+        <span class="value"><span class="dash"></span>Quality</span>
+        <span class="value"><span class="dash"></span>Affordability</span>
+        <span class="value"><span class="dash"></span>Durability</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEED ===== -->
+  <main id="finds" class="site-width feed">
+
+    <!-- CARD: Cooling Blanket -->
+    <article class="card">
+      <div class="card-image" style="background:linear-gradient(180deg,rgba(40,75,55,0.9),rgba(27,58,45,0.95));">
+        <span class="placeholder">Product photo</span>
+        <div class="card-badge">Rick's pick</div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">Home · Sleep</div>
+        <h2 class="card-headline">The Cooling Blanket That Actually Works</h2>
+        <p class="card-text">I bought this after two summers of sweating through what felt like sleeping inside a heated sock. A friend mentioned it, I ignored it for six months, and then ordered it at 1am on a Tuesday in July. That was a year ago. I've washed it probably forty times and it still does the thing — pull heat away from your body without feeling like you're sleeping under a grocery bag. The bamboo weave is legitimately soft. It doesn't feel medical. It just feels like a blanket that's good at its job.</p>
+        <button class="card-expand" onclick="toggleCard(this)">Read more ↓</button>
+      </div>
+      <div class="card-footer">
+        <span class="card-price"><span class="price">~$45</span> <span class="source">— Amazon</span></span>
+        <a href="#" class="card-cta">See it →</a>
+      </div>
+    </article>
+
+    <!-- CARD: Stanley Thermos -->
+    <article class="card">
+      <div class="card-image" style="background:linear-gradient(180deg,rgba(50,40,30,0.9),rgba(35,28,22,0.95));">
+        <span class="placeholder">Product photo</span>
+      </div>
+      <div class="card-body">
+        <div class="card-category">Kitchen · Coffee</div>
+        <h2 class="card-headline">The Stanley Thermos Your Grandpa Was Right About</h2>
+        <p class="card-text">Not the TikTok one. The classic. Vacuum-insulated, built like a tank, keeps coffee hot for 24 hours. I've dropped mine on concrete twice and it has a dent and a story. Still works perfectly. Stanley has been making this since 1913 and somehow the original design is still the best one. That should tell you something about what happens when a company gets it right the first time.</p>
+        <button class="card-expand" onclick="toggleCard(this)">Read more ↓</button>
+      </div>
+      <div class="card-footer">
+        <span class="card-price"><span class="price">~$35</span> <span class="source">— Amazon</span></span>
+        <a href="#" class="card-cta">See it →</a>
+      </div>
+    </article>
+
+    <!-- CARD: Candle Lighter -->
+    <article class="card">
+      <div class="card-image" style="background:linear-gradient(180deg,rgba(45,35,28,0.9),rgba(32,25,20,0.95));">
+        <span class="placeholder">Product photo</span>
+        <div class="card-badge">Rick's pick</div>
+      </div>
+      <div class="card-body">
+        <div class="card-category">Home · Everyday</div>
+        <h2 class="card-headline">The USB Candle Lighter That Replaced Every Match</h2>
+        <p class="card-text">Electric arc, rechargeable, reaches into deep candle jars. No fluid, no refills, no burning your thumb. I bought one as a gag gift and then bought three more for myself. Under fifteen bucks. It charges with USB-C, which means one less proprietary cable in your life. The button has a safety lock that actually makes sense. This is the kind of thing where you use it once and immediately think of five people who need one.</p>
+        <button class="card-expand" onclick="toggleCard(this)">Read more ↓</button>
+      </div>
+      <div class="card-footer">
+        <span class="card-price"><span class="price">~$13</span> <span class="source">— Amazon</span></span>
+        <a href="#" class="card-cta">See it →</a>
+      </div>
+    </article>
+
+    <!-- CARD: Shaving Kit -->
+    <article class="card">
+      <div class="card-image" style="background:linear-gradient(180deg,rgba(30,42,50,0.9),rgba(22,32,40,0.95));">
+        <span class="placeholder">Product photo</span>
+      </div>
+      <div class="card-body">
+        <div class="card-category">Grooming · Self Care</div>
+        <h2 class="card-headline">A Safety Razor Kit That Pays for Itself in Months</h2>
+        <p class="card-text">Blades cost pennies. The shave is closer. The handle is solid metal and will outlast you. I did the math — I've saved over $200 in two years versus cartridge refills. And the ritual is genuinely better. There's something about a single blade and a good lather that makes you slow down for three minutes. No five-blade marketing nonsense. Just a clean shave and a little bit of quiet.</p>
+        <button class="card-expand" onclick="toggleCard(this)">Read more ↓</button>
+      </div>
+      <div class="card-footer">
+        <span class="card-price"><span class="price">~$40</span> <span class="source">— Various</span></span>
+        <a href="#" class="card-cta">See it →</a>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-width site-footer">
+    <p class="footer-disclosure">CoolFind.co is a personal project by Rick Outlander. Some links are affiliate links — I only recommend things I actually own and use. Your trust matters more than a commission.</p>
+    <p class="footer-copy">© 2026 CoolFind.co</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // Expand / Collapse card text
+    function toggleCard(btn) {
+      var text = btn.previousElementSibling;
+      var expanded = btn.getAttribute('data-expanded') === 'true';
+
+      if (!expanded) {
+        text.classList.add('expanded');
+        btn.textContent = 'Show less \u2191';
+        btn.setAttribute('data-expanded', 'true');
+      } else {
+        text.classList.remove('expanded');
+        btn.textContent = 'Read more \u2193';
+        btn.setAttribute('data-expanded', 'false');
+      }
+    }
+
+    // Scroll-triggered fade-in for cards
+    function revealCards() {
+      var cards = document.querySelectorAll('.card');
+      cards.forEach(function(card) {
+        var rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          card.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealCards);
+    window.addEventListener('load', revealCards);
+  </script>
+
 </body>
 </html>
+
