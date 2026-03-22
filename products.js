@@ -16,7 +16,7 @@
 //   source: "",
 //   link: "",
 //   badge: "",            // "Rick's pick" or "" for none
-//   image: "https://m.media-amazon.com/images/I/712KNmpyGHL._SL1500_.jpg",            // product photo URL or "" for placeholder
+//   image: "",            // product photo URL or "" for placeholder
 //   preview: "",          // first 4 lines — the hook
 //   expanded: ""          // revealed on "Read more" click
 // },
@@ -32,7 +32,7 @@ const products = [
     source: "Amazon",
     link: "https://www.amazon.com/dp/B0FGDSSYZ4?tag=coolfind07-20",
     badge: "Rick's pick",
-    image: "",
+    image: "https://m.media-amazon.com/images/I/712KNmpyGHL._SL1500_.jpg",
     preview: "The Keropy has a weight and finish that feels like it belongs in your hand. Get it in bronze — the chrome looks plated and the black looks painted. The butterfly mechanism locks tight and stays put, and the shave itself is closer with less irritation. Most cheap safety razors feel like they're one shave away from falling apart. This one doesn't.",
     expanded: "At twenty bucks, the handle alone is worth it. Then you realize blades cost about ten cents each instead of five dollars for a cartridge refill, and the math starts to feel almost unfair. A better shave, a better experience, and you stop handing Gillette four dollars every time you open a drawer. That's the kind of value that doesn't need a coupon code."
   },
