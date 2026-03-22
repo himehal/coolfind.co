@@ -238,12 +238,15 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      background: #122419;
+      border-bottom: 1px solid var(--border-subtle);
+      box-shadow: inset 0 0 0 6px rgba(0, 0, 0, 0.15);
     }
 
     .card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-width: 85%;
+      max-height: 85%;
+      object-fit: contain;
     }
 
     .card-image .placeholder {
@@ -271,7 +274,6 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 26px;
       font-weight: 700;
-      font-style: italic;
       margin-bottom: 14px;
       line-height: 1.2;
       color: var(--text-primary);
@@ -515,15 +517,6 @@
   <!-- ===== BUILD THE PAGE ===== -->
   <script>
     // Background colors for card image placeholders
-    var cardColors = [
-      'linear-gradient(180deg,rgba(45,35,28,0.9),rgba(32,25,20,0.95))',
-      'linear-gradient(180deg,rgba(40,75,55,0.9),rgba(27,58,45,0.95))',
-      'linear-gradient(180deg,rgba(50,40,30,0.9),rgba(35,28,22,0.95))',
-      'linear-gradient(180deg,rgba(30,42,50,0.9),rgba(22,32,40,0.95))',
-      'linear-gradient(180deg,rgba(35,50,35,0.9),rgba(25,38,25,0.95))',
-      'linear-gradient(180deg,rgba(42,32,42,0.9),rgba(30,22,30,0.95))'
-    ];
-
     // Build find nav ribbon from first 5 products
     var navEl = document.getElementById('find-nav');
     var navHTML = '<span class="active">Latest</span>';
@@ -539,7 +532,6 @@
 
     for (var i = 0; i < products.length; i++) {
       var p = products[i];
-      var bg = cardColors[i % cardColors.length];
 
       var imageContent;
       if (p.image) {
@@ -554,7 +546,7 @@
 
       feedHTML += ''
         + '<article class="card">'
-        +   '<div class="card-image" style="background:' + bg + ';">'
+        +   '<div class="card-image">'
         +     imageContent
         +   '</div>'
         +   '<div class="card-body">'
