@@ -16,7 +16,7 @@
 //   source: "",
 //   link: "",
 //   badge: "",            // "Rick's pick" or "" for none
-//   image: "",            // product photo URL or "" for placeholder
+//   image: "https://m.media-amazon.com/images/I/712KNmpyGHL._SL1500_.jpg",            // product photo URL or "" for placeholder
 //   preview: "",          // first 4 lines — the hook
 //   expanded: ""          // revealed on "Read more" click
 // },
