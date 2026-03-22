@@ -15,7 +15,6 @@
 //   price: "",
 //   source: "",
 //   link: "",
-//   badge: "",            // "Rick's pick" or "" for none
 //   image: "",            // product photo URL or "" for placeholder
 //   preview: "",          // first 4 lines — the hook
 //   expanded: ""          // revealed on "Read more" click
@@ -31,10 +30,21 @@ const products = [
     price: "~$20",
     source: "Amazon",
     link: "https://www.amazon.com/dp/B0FGDSSYZ4?tag=coolfind07-20",
-    badge: "Rick's pick",
     image: "https://m.media-amazon.com/images/I/712KNmpyGHL._SL1500_.jpg",
-    preview: "The Keropy has a weight and finish that feels like it belongs in your hand. Get it in bronze — the chrome looks plated and the black looks painted. The butterfly mechanism locks tight and stays put, and the shave itself is closer with less irritation. Most cheap razors feel like they're one shave away from falling apart. This one doesn't.",
-    expanded: "At twenty bucks, the handle alone is worth it. Then you realize blades cost about ten cents each instead of five dollars for a cartridge refill, and the math starts to feel almost unfair. A better shave, a better experience, and you stop handing the big brands four dollars every time you open a drawer. That's the kind of value that doesn't need a coupon code."
+    preview: "The Keropy has a weight and finish that feels like it belongs in your hand. Get it in bronze — the chrome looks plated and the black looks painted. The butterfly mechanism locks tight and stays put, and the shave itself is closer with less irritation. Most cheap safety razors feel like they're one shave away from falling apart. This one doesn't.",
+    expanded: "At twenty bucks, the handle alone is worth it. Then you realize blades cost about ten cents each instead of five dollars for a cartridge refill, and the math starts to feel almost unfair. A better shave, a better experience, and you stop handing Gillette four dollars every time you open a drawer. That's the kind of value that doesn't need a coupon code."
+  },
+
+  {
+    name: "Proraso Shaving Soap",
+    headline: "The Shave Soap That Might Outlast Your Razor",
+    category: "Grooming · Shaving",
+    price: "~$10",
+    source: "Amazon",
+    link: "https://www.amazon.com/dp/B00837YY18?tag=coolfind07-20",
+    image: "https://m.media-amazon.com/images/I/613TnP+rjXL._SL1500_.jpg",
+    preview: "This tub is ridiculous. The lather feels great, smells good, and is genuinely gentle on sensitive skin — not \"gentle\" in the marketing sense, gentle in the your-face-isn't-angry-afterward sense. Wet your brush, press it into the tub, close the lid, done. No squeeze bottles, no cans, no steps you don't need.",
+    expanded: "Best of all, you will not finish this tub. You'll get halfway through and lose it in a move before it runs out. The value is almost comical — a few bucks for what might be a year of shaves. Pair it with a decent brush and you'll wonder why you ever sprayed foam out of a pressurized can like it was 1997."
   },
 
   {
@@ -44,7 +54,6 @@ const products = [
     price: "~$35",
     source: "Amazon",
     link: "#",
-    badge: "",
     image: "",
     preview: "Not the TikTok one. The classic. Vacuum-insulated, built like a tank, keeps coffee hot for 24 hours. I've dropped mine on concrete twice and it has a dent and a story. Still works perfectly.",
     expanded: "Stanley has been making this since 1913 and somehow the original design is still the best one. That should tell you something about what happens when a company gets it right the first time."
@@ -57,23 +66,9 @@ const products = [
     price: "~$13",
     source: "Amazon",
     link: "#",
-    badge: "Rick's pick",
     image: "",
     preview: "Electric arc, rechargeable, reaches into deep candle jars. No fluid, no refills, no burning your thumb. I bought one as a gag gift and then bought three more for myself. Under fifteen bucks.",
     expanded: "It charges with USB-C, which means one less proprietary cable in your life. The button has a safety lock that actually makes sense. This is the kind of thing where you use it once and immediately think of five people who need one."
-  },
-
-  {
-    name: "Shaving Kit",
-    headline: "A Safety Razor Kit That Pays for Itself in Months",
-    category: "Grooming · Self Care",
-    price: "~$40",
-    source: "Various",
-    link: "#",
-    badge: "",
-    image: "",
-    preview: "Blades cost pennies. The shave is closer. The handle is solid metal and will outlast you. I did the math — I've saved over $200 in two years versus cartridge refills. And the ritual is genuinely better.",
-    expanded: "There's something about a single blade and a good lather that makes you slow down for three minutes. No five-blade marketing nonsense. Just a clean shave and a little bit of quiet."
   }
 
 ];
