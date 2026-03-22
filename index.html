@@ -254,20 +254,6 @@
       font-weight: 300;
     }
 
-    .card-badge {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: var(--accent);
-      color: var(--bg-primary);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 3px;
-    }
-
     .card-body {
       padding: 1.5rem 1.5rem 1.25rem;
     }
@@ -562,11 +548,6 @@
         imageContent = '<span class="placeholder">Product photo</span>';
       }
 
-      var badgeHTML = '';
-      if (p.badge) {
-        badgeHTML = '<div class="card-badge">' + p.badge + '</div>';
-      }
-
       var linkTarget = p.link && p.link !== '#'
         ? ' href="' + p.link + '" target="_blank" rel="nofollow noopener"'
         : ' href="#"';
@@ -575,7 +556,6 @@
         + '<article class="card">'
         +   '<div class="card-image" style="background:' + bg + ';">'
         +     imageContent
-        +     badgeHTML
         +   '</div>'
         +   '<div class="card-body">'
         +     '<div class="card-category">' + p.category + '</div>'
