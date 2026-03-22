@@ -310,6 +310,25 @@
       overflow: visible;
     }
 
+    .card-divider {
+      margin: 14px 0;
+    }
+
+    .card-dash {
+      display: inline-block;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .card-expanded {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.2px;
+    }
+
     .card-expand {
       display: inline-block;
       border: 1px solid rgba(245, 240, 232, 0.15);
@@ -561,7 +580,9 @@
         +   '<div class="card-body">'
         +     '<div class="card-category">' + p.category + '</div>'
         +     '<h2 class="card-headline">' + p.headline + '</h2>'
-        +     '<p class="card-text">' + p.preview + ' ' + p.expanded + '</p>'
+        +     '<p class="card-text">' + p.preview + '</p>'
+        +     '<div class="card-divider" style="display:none;"><span class="card-dash"></span></div>'
+        +     '<p class="card-expanded" style="display:none;">' + p.expanded + '</p>'
         +     '<button class="card-expand" onclick="toggleCard(this)">Read more ↓</button>'
         +   '</div>'
         +   '<div class="card-footer">'
@@ -575,15 +596,19 @@
 
     // Expand / Collapse card text
     function toggleCard(btn) {
-      var text = btn.previousElementSibling;
-      var expanded = btn.getAttribute('data-expanded') === 'true';
+      var body = btn.parentElement;
+      var divider = body.querySelector('.card-divider');
+      var expanded = body.querySelector('.card-expanded');
+      var isOpen = btn.getAttribute('data-expanded') === 'true';
 
-      if (!expanded) {
-        text.classList.add('expanded');
+      if (!isOpen) {
+        divider.style.display = 'block';
+        expanded.style.display = 'block';
         btn.textContent = 'Show less \u2191';
         btn.setAttribute('data-expanded', 'true');
       } else {
-        text.classList.remove('expanded');
+        divider.style.display = 'none';
+        expanded.style.display = 'none';
         btn.textContent = 'Read more \u2193';
         btn.setAttribute('data-expanded', 'false');
       }
@@ -606,5 +631,3 @@
 
 </body>
 </html>
-
-
