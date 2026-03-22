@@ -48,6 +48,18 @@ const products = [
   },
 
   {
+    name: "Badger Shaving Brush",
+    headline: "The Ten Dollar Brush That Made Shaving Feel Like a Ritual",
+    category: "Grooming · Shaving",
+    price: "~$10",
+    source: "Amazon",
+    link: "https://www.amazon.com/dp/B0C6WSN4YN?tag=coolfind07-20",
+    image: "https://m.media-amazon.com/images/I/71pvHGB7nfL._SL1500_.jpg",
+    preview: "The bristles aren't bristly — they're soft, they hold heat, and they turn a puck of shave soap into a warm lather that your fingers never could. There's something about a brush that makes the whole process feel intentional. Less chore, more craft. A simple heritage item that brings a quiet luxury to something you do every morning anyway.",
+    expanded: "And if you're like me and like to go back for a second pass, the brush holds enough lather before a rinse to do it again without reloading. Ten bucks for something that genuinely upgrades every shave from here on out. Pair it with a decent soap and a safety razor and you've built yourself a $40 setup that outperforms anything in a blister pack at the drugstore."
+  },
+
+  {
     name: "Stanley Thermos",
     headline: "The Stanley Thermos Your Grandpa Was Right About",
     category: "Kitchen · Coffee",
