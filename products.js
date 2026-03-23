@@ -60,6 +60,18 @@ const products = [
   },
 
   {
+    name: "Reuzel Astringent Foam",
+    headline: "The After-Shave That Actually Cools You Down",
+    category: "Grooming · Post-Shave",
+    price: "~$15",
+    source: "Ulta Beauty",
+    link: "#",
+    image: "Reuzel.jpg",
+    preview: "Most after-shave products claim to soothe your skin and then light it on fire. The Reuzel is the only one I've found that genuinely cools you down instead of heating you up. It's designed to be non-inflammatory, which sounds clinical until you feel it — like a cold, crisp beer on a hot day. There's a little alcohol, but it doesn't burn like 90 proof.",
+    expanded: "It's a foam, which matters more than you'd think. It doesn't drip out of your hands and disappear down the drain. You get to actually use what you pump out. It's on the priciest side of my shave kit, but nothing else in the routine holds its value the way this does — or rather, you do. Pair it with a decent razor and a good soap and the whole experience starts to feel like something you look forward to instead of something you rush through."
+  },
+
+  {
     name: "Stanley Thermos",
     headline: "The Stanley Thermos Your Grandpa Was Right About",
     category: "Kitchen · Coffee",
