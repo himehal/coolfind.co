@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoolFind.co — Real finds. Worth every penny.</title>
-  <meta name="description" content="Curated by Rick Outlander. Things I actually bought, actually use, and actually love. Quality and durability — without spending like you have something to prove.">
+  <title>About Rick — CoolFind.co</title>
+  <meta name="description" content="Meet Rick Outlander — the guy behind CoolFind.co. Real purchases, real opinions, real life.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* ===== CSS VARIABLES ===== */
     :root {
       --bg-primary: #1B3A2D;
       --bg-secondary: #152e22;
@@ -18,20 +17,16 @@
       --text-muted: rgba(245, 240, 232, 0.6);
       --text-faint: rgba(245, 240, 232, 0.35);
       --border-subtle: rgba(255, 255, 255, 0.07);
-      --accent-tint: rgba(232, 115, 42, 0.12);
       --accent-border: rgba(232, 115, 42, 0.2);
     }
 
-    /* ===== RESET & BASE ===== */
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg-primary);
@@ -46,12 +41,8 @@
       color: var(--bg-primary);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    /* ===== LAYOUT ===== */
     .site-width {
       max-width: 900px;
       margin: 0 auto;
@@ -59,7 +50,7 @@
       padding-right: 1.5rem;
     }
 
-    /* ===== NAV ===== */
+    /* NAV */
     .nav {
       padding: 1.25rem 0;
       display: flex;
@@ -99,29 +90,60 @@
       transition: color 0.3s ease;
     }
 
-    .nav-avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1px solid rgba(232, 115, 42, 0.6);
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-mark {
+      width: 48px;
+      height: 48px;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      color: rgba(245, 240, 232, 0.6);
     }
 
-    /* ===== HERO ===== */
-    .hero {
+    .nav-mark-outer {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(232, 115, 42, 0.35);
+      position: absolute;
+    }
+
+    .nav-mark-inner {
+      width: 41px;
+      height: 41px;
+      border-radius: 50%;
+      border: 0.5px solid rgba(245, 240, 232, 0.12);
+      position: absolute;
+    }
+
+    .nav-mark-text {
+      text-align: center;
+      line-height: 1.05;
+    }
+
+    .nav-mark-text span {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .nav-mark-cool { color: var(--text-primary); }
+    .nav-mark-find { color: var(--accent); }
+
+    /* ABOUT CONTENT */
+    .about {
       border: 1px solid var(--border-subtle);
       border-radius: 10px;
-      padding: 3.5rem 2.5rem 0;
-      overflow: hidden;
+      padding: 3.5rem 2.5rem;
+      margin-top: 0.5rem;
     }
 
-    .hero-eyebrow {
+    .about-eyebrow {
       font-size: 10px;
       letter-spacing: 3.5px;
       text-transform: uppercase;
@@ -130,68 +152,54 @@
       margin-bottom: 1.25rem;
     }
 
-    .hero-headline {
+    .about-headline {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(42px, 7vw, 72px);
+      font-size: clamp(36px, 6vw, 56px);
       font-weight: 700;
-      line-height: 1.05;
-      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      margin-bottom: 2rem;
       color: var(--text-primary);
     }
 
-    .hero-headline .accent-line {
-      color: var(--accent);
-      font-style: italic;
-    }
-
-    .hero-sub {
+    .about-body p {
       font-size: 14px;
-      line-height: 1.75;
+      line-height: 1.85;
       color: var(--text-muted);
       font-weight: 300;
-      max-width: 560px;
-      margin-bottom: 2.5rem;
       letter-spacing: 0.2px;
+      margin-bottom: 1.5rem;
+      max-width: 620px;
     }
 
-    /* ===== FIND NAV RIBBON ===== */
-    .find-nav {
-      border-top: 1px solid var(--border-subtle);
-      padding: 14px 0;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      row-gap: 10px;
-      font-size: 10px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    .find-nav .active {
-      color: var(--accent);
-      padding-right: 1.25rem;
-    }
-
-    .find-nav .find-link {
-      border-left: 1px solid rgba(245, 240, 232, 0.15);
-      padding: 0 1.25rem;
-      color: rgba(245, 240, 232, 0.5);
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    .find-nav .find-link:hover {
+    .about-section-head {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
       color: var(--text-primary);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
     }
 
-    /* ===== VALUES BAR ===== */
-    .values-bar {
-      border-top: 1px solid var(--border-subtle);
-      padding: 14px 0;
+    .about-dash {
+      display: inline-block;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 2.5rem;
+    }
+
+    .values-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .value-item {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 8px;
       font-size: 10px;
       letter-spacing: 2.5px;
       text-transform: uppercase;
@@ -199,193 +207,38 @@
       font-weight: 500;
     }
 
-    .values-bar .value {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .values-bar .dash {
+    .value-item .dash {
       width: 16px;
       height: 2px;
       background: var(--accent);
       display: inline-block;
     }
 
-    /* ===== FEED ===== */
-    .feed {
-      padding-top: 2.5rem;
-    }
-
-    /* ===== CARD ===== */
-    .card {
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 2.5rem;
-      transition: border-color 0.3s ease;
-    }
-
-    .card:hover {
-      border-color: var(--accent-border);
-    }
-
-    .card-image {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: #122419;
-      border-bottom: 1px solid var(--border-subtle);
-      box-shadow: inset 0 0 0 6px rgba(0, 0, 0, 0.15);
-    }
-
-    .card-image img {
-      max-width: 85%;
-      max-height: 85%;
-      object-fit: contain;
-    }
-
-    .card-image .placeholder {
-      font-size: 13px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: rgba(245, 240, 232, 0.2);
-      font-weight: 300;
-    }
-
-    .card-body {
-      padding: 1.5rem 1.5rem 1.25rem;
-    }
-
-    .card-category {
-      font-size: 9px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
-
-    .card-headline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 14px;
-      line-height: 1.2;
-      color: var(--text-primary);
-    }
-
-    .card-text {
-      font-size: 14px;
-      line-height: 1.75;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-      font-weight: 300;
-      letter-spacing: 0.2px;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .card-text.expanded {
-      display: block;
-      -webkit-line-clamp: unset;
-      overflow: visible;
-    }
-
-    .card-divider {
-      margin: 14px 0;
-    }
-
-    .card-dash {
-      display: inline-block;
-      width: 40px;
-      height: 2px;
-      background: var(--accent);
-    }
-
-    .card-expanded {
-      font-size: 14px;
-      line-height: 1.75;
-      color: var(--text-muted);
-      font-weight: 300;
-      letter-spacing: 0.2px;
-    }
-
-    .card-expand {
-      display: inline-block;
-      border: 1px solid rgba(245, 240, 232, 0.15);
-      border-radius: 4px;
-      padding: 8px 18px;
-      font-size: 10px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: rgba(245, 240, 232, 0.5);
-      cursor: pointer;
-      font-weight: 600;
-      margin-top: 12px;
-      background: none;
-      font-family: 'Jost', sans-serif;
-      transition: color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .card-expand:hover {
-      color: rgba(245, 240, 232, 0.8);
-      border-color: rgba(245, 240, 232, 0.3);
-    }
-
-    .card-footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 14px 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .card-price {
-      font-size: 13px;
-      font-weight: 300;
-    }
-
-    .card-price .price {
-      color: var(--accent);
-    }
-
-    .card-price .source {
-      color: var(--text-faint);
-    }
-
-    .card-cta {
+    /* BACK LINK */
+    .back-link {
       display: inline-block;
       border: 1px solid var(--accent);
       border-radius: 4px;
-      padding: 8px 20px;
+      padding: 10px 24px;
       font-size: 10px;
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--accent);
-      cursor: pointer;
       font-weight: 600;
-      font-family: 'Jost', sans-serif;
-      background: none;
+      margin-top: 1rem;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    .card-cta:hover {
+    .back-link:hover {
       background: var(--accent);
       color: var(--bg-primary);
     }
 
-    /* ===== FOOTER ===== */
+    /* FOOTER */
     .site-footer {
       padding: 2.5rem 0 3rem;
       border-top: 1px solid var(--border-subtle);
-      margin-top: 1rem;
+      margin-top: 3rem;
     }
 
     .footer-disclosure {
@@ -401,69 +254,17 @@
       color: rgba(245, 240, 232, 0.2);
     }
 
-    /* ===== ANIMATIONS ===== */
-    .card {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .card.visible {
-      animation: fadeUp 0.6s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===== MOBILE ===== */
+    /* MOBILE */
     @media (max-width: 640px) {
-      .nav-links {
-        display: none;
-      }
-
-      .nav-right {
-        gap: 0;
-      }
-
-      .hero {
-        padding: 2.5rem 1.25rem 0;
-      }
-
-      .hero-headline {
-        font-size: clamp(36px, 10vw, 52px);
-      }
-
-      .find-nav {
-        row-gap: 8px;
-      }
-
-      .find-nav .find-link {
-        padding: 0 1rem;
-      }
-
-      .values-bar {
-        gap: 1.25rem;
-        flex-wrap: wrap;
-      }
-
-      .card-body {
-        padding: 1.25rem 1.25rem 1rem;
-      }
-
-      .card-footer {
-        padding: 12px 1.25rem;
-      }
-
-      .card-headline {
-        font-size: 23px;
-      }
+      .nav-links { display: none; }
+      .nav-right { gap: 0; }
+      .about { padding: 2.5rem 1.25rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== NAV ===== -->
+  <!-- NAV -->
   <header class="site-width">
     <nav class="nav">
       <a href="/" class="nav-logo">
@@ -471,135 +272,70 @@
       </a>
       <div class="nav-right">
         <div class="nav-links">
-          <a href="#finds">Finds</a>
-          <a href="#categories">Categories</a>
-          <a href="#about">About Rick</a>
+          <a href="/">Finds</a>
+          <a href="#">Categories</a>
+          <a href="about.html" class="active">About Rick</a>
         </div>
-        <div class="nav-avatar">RO</div>
+        <div class="nav-mark">
+          <div class="nav-mark-outer"></div>
+          <div class="nav-mark-inner"></div>
+          <div class="nav-mark-text">
+            <span class="nav-mark-cool">Cool</span>
+            <span class="nav-mark-find">Find</span>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="site-width">
-    <div class="hero">
-      <div class="hero-eyebrow">Rick Outlander — Curator</div>
-      <h1 class="hero-headline">
-        Real finds.<br>
-        <span class="accent-line">Worth every penny.</span>
-      </h1>
-      <p class="hero-sub">Things I actually bought, actually use, and actually love. Quality and durability — without spending like you have something to prove.</p>
+  <!-- ABOUT -->
+  <main class="site-width">
+    <div class="about">
+      <div class="about-eyebrow">About the Curator</div>
+      <h1 class="about-headline">Who's Rick Outlander?</h1>
+      <span class="about-dash"></span>
 
-      <!-- Find Nav Ribbon — built automatically from products.js -->
-      <div class="find-nav" id="find-nav"></div>
+      <div class="about-body">
+        <p>I'm the friend who already bought it, tested it, and will tell you exactly what I think. No sponsorships. No PR samples. No "this product was provided by" disclaimers. Everything on this site is something I spent my own money on, used in my actual life, and decided was worth telling people about.</p>
 
-      <!-- Values Bar -->
-      <div class="values-bar">
-        <span class="value"><span class="dash"></span>Quality</span>
-        <span class="value"><span class="dash"></span>Affordability</span>
-        <span class="value"><span class="dash"></span>Durability</span>
+        <p>Think of me as that buddy from high school who somehow always knows the best stuff. You trust him not because he has credentials, but because he's never steered you wrong. A new friend but an old one too — that's the energy here.</p>
+
+        <p>The entries aren't long. They might even be too short. They make up for it by being sharp, honest, and occasionally a little surprising. Sometimes I'll start talking about a thermos and end up somewhere interesting about global supply chains. It goes where it goes. No political bias, no authority complex — just one person's opinion, delivered with a little spirit.</p>
       </div>
+
+      <h2 class="about-section-head">What I look for</h2>
+
+      <div class="values-row">
+        <span class="value-item"><span class="dash"></span>Quality</span>
+        <span class="value-item"><span class="dash"></span>Affordability</span>
+        <span class="value-item"><span class="dash"></span>Durability</span>
+      </div>
+
+      <div class="about-body">
+        <p>Three things. Quality — does it actually work and is it well made? Affordability — not cheap, but worth it for what you get over a lifetime. Durability — will it still be good a year from now? Five years? Value here isn't about frugality. A $90 blanket that lasts a decade beats a $25 one you replace every year. That's how I think about every product on this site.</p>
+      </div>
+
+      <h2 class="about-section-head">Why "CoolFind"?</h2>
+
+      <div class="about-body">
+        <p>Because the best products aren't always the most famous ones. Sometimes the best thing you'll ever own is something your buddy mentioned at a cookout that you forgot about for six months and then ordered at 1am on a Tuesday. That's a cool find. This site is full of them.</p>
+      </div>
+
+      <h2 class="about-section-head">The fine print</h2>
+
+      <div class="about-body">
+        <p>Some of these links earn me a small commission. Some don't have a link at all — they're things you can only grab in a store. The recommendation always comes first. If something isn't worth your money, it doesn't make the site. Period.</p>
+      </div>
+
+      <a href="/" class="back-link">← Back to finds</a>
     </div>
-  </section>
+  </main>
 
-  <!-- ===== FEED — cards built automatically from products.js ===== -->
-  <main id="finds" class="site-width feed"></main>
-
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer class="site-width site-footer">
     <p class="footer-disclosure">CoolFind.co is a personal project by Rick Outlander. Some links are affiliate links — I only recommend things I actually own and use. Your trust matters more than a commission.</p>
     <p class="footer-copy">© 2026 CoolFind.co</p>
   </footer>
-
-  <!-- ===== LOAD PRODUCTS ===== -->
-  <script src="products.js"></script>
-
-  <!-- ===== BUILD THE PAGE ===== -->
-  <script>
-    // Background colors for card image placeholders
-    // Build find nav ribbon from first 5 products
-    var navEl = document.getElementById('find-nav');
-    var navHTML = '<span class="active">Latest</span>';
-    var maxNav = Math.min(products.length, 5);
-    for (var i = 0; i < maxNav; i++) {
-      navHTML += '<span class="find-link">' + products[i].name + '</span>';
-    }
-    navEl.innerHTML = navHTML;
-
-    // Build product cards
-    var feed = document.getElementById('finds');
-    var feedHTML = '';
-
-    for (var i = 0; i < products.length; i++) {
-      var p = products[i];
-
-      var imageContent;
-      if (p.image) {
-        imageContent = '<img src="' + p.image + '" alt="' + p.name + '">';
-      } else {
-        imageContent = '<span class="placeholder">Product photo</span>';
-      }
-
-      var linkTarget = p.link && p.link !== '#'
-        ? ' href="' + p.link + '" target="_blank" rel="nofollow noopener"'
-        : ' href="#"';
-
-      feedHTML += ''
-        + '<article class="card">'
-        +   '<div class="card-image">'
-        +     imageContent
-        +   '</div>'
-        +   '<div class="card-body">'
-        +     '<div class="card-category">' + p.category + '</div>'
-        +     '<h2 class="card-headline">' + p.headline + '</h2>'
-        +     '<p class="card-text">' + p.preview + '</p>'
-        +     '<div class="card-divider" style="display:none;"><span class="card-dash"></span></div>'
-        +     '<p class="card-expanded" style="display:none;">' + p.expanded + '</p>'
-        +     '<button class="card-expand" onclick="toggleCard(this)">Read more ↓</button>'
-        +   '</div>'
-        +   '<div class="card-footer">'
-        +     '<span class="card-price"><span class="price">' + p.price + '</span> <span class="source">— ' + p.source + '</span></span>'
-        +     '<a' + linkTarget + ' class="card-cta">See it →</a>'
-        +   '</div>'
-        + '</article>';
-    }
-
-    feed.innerHTML = feedHTML;
-
-    // Expand / Collapse card text
-    function toggleCard(btn) {
-      var body = btn.parentElement;
-      var divider = body.querySelector('.card-divider');
-      var expanded = body.querySelector('.card-expanded');
-      var isOpen = btn.getAttribute('data-expanded') === 'true';
-
-      if (!isOpen) {
-        divider.style.display = 'block';
-        expanded.style.display = 'block';
-        btn.textContent = 'Show less \u2191';
-        btn.setAttribute('data-expanded', 'true');
-      } else {
-        divider.style.display = 'none';
-        expanded.style.display = 'none';
-        btn.textContent = 'Read more \u2193';
-        btn.setAttribute('data-expanded', 'false');
-      }
-    }
-
-    // Scroll-triggered fade-in for cards
-    function revealCards() {
-      var cards = document.querySelectorAll('.card');
-      cards.forEach(function(card) {
-        var rect = card.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 60) {
-          card.classList.add('visible');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', revealCards);
-    revealCards();
-  </script>
 
 </body>
 </html>
